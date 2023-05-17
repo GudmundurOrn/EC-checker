@@ -1,8 +1,6 @@
-a = 1
-b = 2
-c = a+b
-print(c)
+A = 1
+B = 2
+C = A+B
+print(C)
 print("Hello World!")
-#import tkinter as tk
-# window = tk.Tk()
-#greeting = tk.Label(text="Hello, Tkinter")
+print("hi again!")

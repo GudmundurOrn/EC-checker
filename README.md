@@ -1,1 +1,3 @@
 # EC-checker
+
+test readme
