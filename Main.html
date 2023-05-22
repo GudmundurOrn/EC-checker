@@ -1,1 +1,41 @@
-<div> test </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Calculator</title>
+    <script>
+        function runPythonCode() {
+            // Get input values
+            var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+
+            // Make an AJAX request to run the Python code
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/run-python-code", true);
+            xhr.setRequestHeader("Content-type", "application/json");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Display the result
+                    document.getElementById("result").value = xhr.responseText;
+                }
+            };
+
+            // Send the input values to the server
+            xhr.send(JSON.stringify({a: a, b: b}));
+        }
+    </script>
+</head>
+<body>
+    <h1>Python Calculator</h1>
+    <label for="inputA">Input A:</label>
+    <input type="text" id="inputA">
+    <br>
+    <label for="inputB">Input B:</label>
+    <input type="text" id="inputB">
+    <br>
+    <button onclick="runPythonCode()">Calculate</button>
+    <br>
+    <label for="result">Result:</label>
+    <input type="text" id="result">
+</body>
+</html>
